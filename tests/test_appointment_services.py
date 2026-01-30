@@ -1,5 +1,5 @@
 import pytest
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from patient_encounter_system.services.appointment_service import (
     create_appointment,
     get_appointments_by_date,
