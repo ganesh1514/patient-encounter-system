@@ -1,0 +1,6 @@
+.pytest_cache
+__pycache__
+.coverage
+.env
+poetry.lock
+Project_Production-Grade_Medical_Backend_System-sir.pdf
