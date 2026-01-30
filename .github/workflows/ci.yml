@@ -18,7 +18,8 @@ jobs:
       DB_PORT: ${{ secrets.DB_PORT }}
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -34,13 +35,36 @@ jobs:
         run: poetry install
         
       - name: Run Ruff linting
+        id: lint
         run: poetry run ruff check src/ tests/
         
       - name: Run Black formatting check
+        id: format
         run: poetry run black --check src/ tests/
         
       - name: Run Bandit security check
+        id: security
         run: poetry run bandit -r src/ -ll -x tests
         
       - name: Run tests with coverage
+        id: tests
         run: poetry run pytest --cov=patient_encounter_system --cov-fail-under=75
+
+      # This step runs onnly if any previous step failed
+      - name: Report failure
+        if: failure()
+        run: |
+          echo "CI Pipeline failed!"
+          echo "Please check the logs above to identify the issue."
+          echo ""
+          echo "Common fixes:"
+          echo "- Linting: Run 'poetry run ruff check src/ tests/ --fix'"
+          echo "- Formatting: Run 'poetry run black src/ tests/'"
+          echo "- Tests: Run 'poetry run pytest -v' locally"
+
+      # This step runs only if all steps succeeded
+      - name: Report success
+        if: success()
+        run: |
+          echo "CI Pipeline passed!"
+          echo "All checks completed successfully."
