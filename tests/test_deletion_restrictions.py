@@ -1,12 +1,12 @@
 import pytest
 from datetime import datetime, timezone, timedelta
 
-from patient_encounter_system.models.models import Appointment
-from patient_encounter_system.services.patient_service import (
+from src.models.appointment import Appointment
+from src.services.patient_service import (
     delete_patient,
     PatientDeletionError,
 )
-from patient_encounter_system.services.doctor_service import (
+from src.services.doctor_service import (
     delete_doctor,
     deactivate_doctor,
     DoctorDeletionError,

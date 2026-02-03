@@ -4,24 +4,22 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
-from patient_encounter_system.database import get_db, engine, Base
-from patient_encounter_system.schemas.schemas import (
-    PatientCreate,
-    PatientRead,
-    DoctorCreate,
-    DoctorRead,
-    AppointmentCreate,
-    AppointmentRead,
-)
-from patient_encounter_system.services.patient_service import (
+from src.database import get_db, engine, Base
+from src.schemas.patient import PatientCreate, PatientRead
+
+
+from src.schemas.doctor import DoctorCreate, DoctorRead
+
+from src.schemas.appointment import AppointmentCreate, AppointmentRead
+from src.services.patient_service import (
     create_patient,
     get_patient_by_id,
 )
-from patient_encounter_system.services.doctor_service import (
+from src.services.doctor_service import (
     create_doctor,
     get_doctor_by_id,
 )
-from patient_encounter_system.services.appointment_service import (
+from src.services.appointment_service import (
     create_appointment,
     get_appointments_by_date,
     AppointmentConflictError,

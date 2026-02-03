@@ -1,8 +1,10 @@
 from datetime import datetime, timezone, timedelta, date, time
 from sqlalchemy.orm import Session
 
-from patient_encounter_system.models.models import Appointment, Doctor, Patient
-from patient_encounter_system.schemas.schemas import AppointmentCreate
+from src.models.patient import Patient
+from src.models.doctor import Doctor
+from src.models.appointment import Appointment
+from src.schemas.appointment import AppointmentCreate
 
 
 class AppointmentConflictError(Exception):

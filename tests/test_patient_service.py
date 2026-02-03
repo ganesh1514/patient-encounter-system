@@ -1,8 +1,8 @@
-from patient_encounter_system.services.patient_service import (
+from src.services.patient_service import (
     create_patient,
     get_patient_by_id,
 )
-from patient_encounter_system.schemas.schemas import PatientCreate
+from src.schemas.patient import PatientCreate
 
 
 def test_create_patient_success(db_session):

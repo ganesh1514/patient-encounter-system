@@ -1,12 +1,12 @@
 import pytest
 from datetime import timedelta
-from patient_encounter_system.services.appointment_service import (
+from src.services.appointment_service import (
     create_appointment,
     get_appointments_by_date,
     AppointmentConflictError,
     AppointmentValidationError,
 )
-from patient_encounter_system.schemas.schemas import AppointmentCreate
+from src.schemas.appointment import AppointmentCreate
 
 
 def test_create_appointment_success(

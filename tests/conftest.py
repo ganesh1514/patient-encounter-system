@@ -3,8 +3,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timezone, timedelta
 
-from patient_encounter_system.database import Base
-from patient_encounter_system.models.models import Patient, Doctor
+from src.database import Base
+from src.models.patient import Patient
+from src.models.doctor import Doctor
 
 
 @pytest.fixture(scope="function")

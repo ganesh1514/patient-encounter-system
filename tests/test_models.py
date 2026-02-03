@@ -1,5 +1,7 @@
 from datetime import datetime, timezone, timedelta
-from patient_encounter_system.models.models import Patient, Doctor, Appointment
+from src.models.patient import Patient
+from src.models.doctor import Doctor
+from src.models.appointment import Appointment
 
 
 def test_patient_creation(db_session):

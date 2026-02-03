@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
-from patient_encounter_system.models.models import Patient, Appointment
-from patient_encounter_system.schemas.schemas import PatientCreate
+from src.models.patient import Patient
+from src.models.appointment import Appointment
+from src.schemas.patient import PatientCreate
 
 
 class PatientDeletionError(Exception):

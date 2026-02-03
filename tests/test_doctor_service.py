@@ -1,8 +1,8 @@
-from patient_encounter_system.services.doctor_service import (
+from src.services.doctor_service import (
     create_doctor,
     get_doctor_by_id,
 )
-from patient_encounter_system.schemas.schemas import DoctorCreate
+from src.schemas.doctor import DoctorCreate
 
 
 def test_create_doctor_success(db_session):
